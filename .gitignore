@@ -1,0 +1,27 @@
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.venv/
+venv/
+env/
+.env
+
+# build
+dist/
+build/
+
+# tests / coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# app artifacts
+geospatial.db
+geospatial.db-journal
+uploads/
+
+# editor
+.vscode/
+.idea/
+.DS_Store

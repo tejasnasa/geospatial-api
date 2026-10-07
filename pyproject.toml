@@ -1,0 +1,41 @@
+[project]
+name = "geospatial-api"
+version = "0.1.0"
+description = "FastAPI backend that ingests geospatial files (Shapefile/KML) and returns per-feature measurements."
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi>=0.115,<1.0",
+    "uvicorn[standard]>=0.30,<1.0",
+    "pydantic>=2.7,<3.0",
+    "pydantic-settings>=2.4,<3.0",
+    "sqlalchemy>=2.0,<3.0",
+    "python-multipart>=0.0.9",
+    "shapely>=2.0,<3.0",
+    "pyproj>=3.6,<4.0",
+    "geopandas>=1.0,<2.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0,<9.0",
+    "httpx>=0.27,<1.0",
+    "ruff>=0.6,<1.0",
+]
+
+[tool.setuptools]
+packages = ["app", "app.api", "app.core", "app.models", "app.schemas", "app.services", "app.services.readers"]
+
+[tool.setuptools.package-data]
+app = ["py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM"]
+ignore = ["E501", "B008", "SIM105"]
